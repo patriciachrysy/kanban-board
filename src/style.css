@@ -57,7 +57,7 @@ img {
 }
 
 header {
-  padding: 0.5rem 0;
+  padding: 2rem 0;
 }
 
 .container {
@@ -78,17 +78,18 @@ header {
   gap: 5rem;
   align-items: center;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .logo {
-  width: 50px;
+  width: 90px;
 }
 
 .nav-item a {
-  transition: all 0.2s;
+  transition: all 0.9s;
 }
 
 .nav-item a:hover {
   color: #f04;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
