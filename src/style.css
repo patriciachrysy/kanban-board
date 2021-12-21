@@ -17,11 +17,53 @@ body {
 }
 
 body {
-  background:linear-gradient( to bottom, #151d21 20%, #233339, #374a52 50%, #233339, #151d21),url("./images/background.gif");
+  background: linear-gradient(
+      to bottom,
+      #151d21 20%,
+      #233339,
+      #374a52 50%,
+      #233339,
+      #151d21
+    ),
+    url('./images/background.gif');
   background-position: top left;
   background-repeat: no-repeat;
 }
 
 h1 {
   font-family: 'Bebas Neue', cursive;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  padding: 0.5rem 0;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-item a:hover {
+  color: #ff0044;
 }
