@@ -1,7 +1,11 @@
 /* black-color: #374a52  rgba(55,74,82,255)*/
+
 /* Deep-black #233339 rgba(35,51,57,255) */
+
 /* Deepest-black #151d21 rgba(21,29,33,255) */
+
 /* Pink-color #ff0044 rgba(255,0,68,255) */
+
 /* white-color #fefefe rgba(254,254,254,255) */
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap');
@@ -65,5 +69,5 @@ header {
 }
 
 .nav-item a:hover {
-  color: #ff0044;
+  color: #f04;
 }
