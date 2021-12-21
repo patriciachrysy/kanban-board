@@ -1,0 +1,27 @@
+/* black-color: #374a52  rgba(55,74,82,255)*/
+/* Deep-black #233339 rgba(35,51,57,255) */
+/* Deepest-black #151d21 rgba(21,29,33,255) */
+/* Pink-color #ff0044 rgba(255,0,68,255) */
+/* white-color #fefefe rgba(254,254,254,255) */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+body {
+  background:linear-gradient( to bottom, #151d21 20%, #233339, #374a52 50%, #233339, #151d21),url("./images/background.gif");
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+}
