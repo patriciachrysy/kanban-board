@@ -66,12 +66,14 @@ header {
   margin: 0 auto;
 }
 
+.container--small {
+  max-width: 850px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
-  margin: auto;
 }
 
 .nav-links {
