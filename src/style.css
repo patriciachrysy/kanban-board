@@ -1,4 +1,4 @@
-/* black-color: #374a52  rgba(55,74,82,255)*/
+/* black-color: #374a52  rgba(55,74,82,255) */
 
 /* Deep-black #233339 rgba(35,51,57,255) */
 
@@ -9,6 +9,10 @@
 /* white-color #fefefe rgba(254,254,254,255) */
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -21,7 +25,8 @@ body {
 }
 
 body {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       #151d21 20%,
       #233339,
@@ -47,6 +52,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 header {
   padding: 0.5rem 0;
 }
@@ -61,13 +70,25 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 5rem;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo {
+  width: 50px;
+}
+
+.nav-item a {
+  transition: all 0.2s;
 }
 
 .nav-item a:hover {
   color: #f04;
+  font-size: 1.05rem;
 }
