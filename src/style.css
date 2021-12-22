@@ -94,3 +94,62 @@ header {
   color: #f04;
   font-size: 1rem;
 }
+
+footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+.footer-content {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-content img {
+  width: 50px;
+}
+
+.footer-content section {
+  width: 30%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-content section:first-child {
+  align-items: flex-start;
+}
+
+
+.footer-content section h2 {
+  font-size: 18px;
+  color: #f04;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.footer-content section ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content section:first-child ul{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.footer-content section:first-child ul li{
+  list-style: none;
+}
