@@ -10,11 +10,11 @@ class ShowsView {
     return `<li class="show">
               <div class="show__img" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${show.image.medium})">
                 <h4>${show.name}</h4>
-              </div>
-              <div class="show__info">
-                <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
-                <span>5</span>
-                <button type="button" data-id="${show.id}" class="show__comments">comments</button>
+                <div class="show__info">
+                  <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
+                  <span>5</span>
+                  <ion-icon class="show__comment" data-id="${show.id}" name="chatbubble-outline"></ion-icon>
+                </div>
               </div>
             </li>`;
   }
@@ -26,7 +26,7 @@ class ShowsView {
         console.log(`like the ${item.dataset.id}th element`);
       });
     });
-    document.querySelectorAll('.show__comments').forEach((item) => {
+    document.querySelectorAll('.show__comment').forEach((item) => {
       item.addEventListener('click', () => {
         // TODO: Implement opening comments section
         console.log(`open the ${item.dataset.id}'s modal`);
@@ -36,7 +36,7 @@ class ShowsView {
 
   displayShows(shows) {
     this.parentElement.innerHTML = '';
-    const showsSliced = shows.slice(0, 12);
+    const showsSliced = shows.slice(0, 24);
     showsSliced.forEach((show) => {
       const markup = this.generateMarkup(show);
       this.parentElement.insertAdjacentHTML('beforeend', markup);

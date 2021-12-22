@@ -112,7 +112,9 @@ header {
 
 .show__img {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
   padding: 0.5rem;
   border-radius: 2px;
   height: 160px;
@@ -121,7 +123,6 @@ header {
   background-size: 100%;
   background-repeat: no-repeat;
   transition: all 0.5s;
-  cursor: pointer;
 }
 
 .show__img:hover {
@@ -131,22 +132,27 @@ header {
 .show__info {
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 20px 10px 1fr;
 }
 
 .show__like {
+  transition: all 0.3s;
   cursor: pointer;
 }
 
-.show__comments {
-  background-color: transparent;
+.show__like:hover {
+  color: #f04;
+}
+
+.show__comment {
   color: #fff;
-  border: none;
   grid-column: -1;
-  text-decoration: underline;
   cursor: pointer;
+  transition: all 0.3s;
+  /* stylelint-disable-next-line custom-property-empty-line-before */
+  --ionicon-stroke-width: 50px;
 }
 
-.show__comments:hover {
+.show__comment:hover {
   color: #f04;
 }
