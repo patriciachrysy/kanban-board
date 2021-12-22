@@ -12,6 +12,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -33,8 +35,7 @@ body {
       #374a52 50%,
       #233339,
       #151d21
-    ),
-    url('./images/background.gif');
+    );
   background-position: top left;
   background-repeat: no-repeat;
 }
@@ -95,4 +96,59 @@ header {
 .nav-item a:hover {
   color: #f04;
   font-size: 1rem;
+}
+
+.section-shows {
+  padding: 3rem 0;
+}
+
+.section-shows__title {
+  margin-bottom: 2rem;
+}
+
+.list-shows {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  grid-gap: 2rem;
+}
+
+.show__img {
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem;
+  border-radius: 2px;
+  height: 100px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(./images/background.gif);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.show__img:hover {
+  background-size: 120%;
+}
+
+.show__info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.show__like {
+  cursor: pointer;
+}
+
+.show__comments {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  grid-column: -1;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.show__comments:hover {
+  color: #f04;
 }
