@@ -96,9 +96,9 @@ header {
 }
 
 footer {
-  position:absolute;
-  bottom:0;
-  width:100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-content {
@@ -127,14 +127,13 @@ footer {
   align-items: flex-start;
 }
 
-
 .footer-content section h2 {
   font-size: 18px;
   color: #f04;
   font-family: 'Bebas Neue', cursive;
 }
 
-.footer-content section ul{
+.footer-content section ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -142,7 +141,7 @@ footer {
   margin: 0;
 }
 
-.footer-content section:first-child ul{
+.footer-content section:first-child ul {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -150,6 +149,6 @@ footer {
   list-style: none;
 }
 
-.footer-content section:first-child ul li{
+.footer-content section:first-child ul li {
   list-style: none;
 }
