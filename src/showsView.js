@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import { buildPopup } from './popup.js';
+import buildPopup from './popup.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -24,32 +24,27 @@ class ShowsView {
   attachEventListeners(shows) {
     document.querySelectorAll('.show__like').forEach((item) => {
       item.addEventListener('click', () => {
-        // TODO: Implement liking a show
-        console.log(`like the ${item.dataset.id}th element`);
       });
     });
     document.querySelectorAll('.show__comment').forEach((item) => {
       item.addEventListener('click', () => {
-        // TODO: Implement opening comments section
-        console.log(`open the ${item.dataset.id}'s modal`);
         let theShow = null;
         shows.map((show) => {
-          if(show.id === parseInt(item.dataset.id)) {
+          if (show.id === parseInt(item.dataset.id, 10)) {
             theShow = show;
           }
+          return 0;
         });
-        console.log("Show was found");
-        console.log(theShow);
         const popSection = document.querySelector('.popup-section');
-        let popup = buildPopup(theShow);
+        const popup = buildPopup(theShow);
         popup.classList.add('show');
         popSection.innerHTML = '';
         popSection.appendChild(popup);
 
-        let popupCloseButton = document.querySelector('#close');
+        const popupCloseButton = document.querySelector('#close');
         popupCloseButton.addEventListener('click', () => {
           popup.classList.add('hide');
-        })
+        });
       });
     });
   }

@@ -158,8 +158,8 @@ header {
 }
 
 
- /* Popup container */
- .popup-section {
+/* Popup container */
+.popup-section {
   position: relative;
   width: 80%;
   margin: auto;
@@ -170,10 +170,9 @@ header {
   visibility: hidden;
   width: 100%;
   margin: auto;
-  background-color: rgba(21,29,33,0.95);
+  background-color: rgba(21, 29, 33, 0.95);
   color: #fefefe;
   border-radius: 6px;
-  padding: 8px 0;
   position: absolute;
   z-index: 1;
   top: 0;
@@ -189,7 +188,7 @@ header {
   align-self: flex-end;
   color: #f04;
   background: none;
-  border:none;
+  border: none;
   font-size: 28px;
   opacity: 0.5;
   cursor: pointer;
@@ -243,7 +242,8 @@ header {
   gap: 1rem;
 }
 
-.popup-section .popup .details .actions a, .popup-section .popup .comments form input[type='submit']{
+.popup-section .popup .details .actions a,
+.popup-section .popup .comments form input[type='submit'] {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -255,7 +255,7 @@ header {
   border: 1px solid #f04;
 }
 
-.popup-section .popup .details .actions a:first-child{
+.popup-section .popup .details .actions a:first-child {
   background-color: #f04;
   border: 1px solid #151d21;
 }
@@ -282,7 +282,8 @@ header {
   gap: 1rem;
 }
 
-.popup-section .popup .comments form input[type='text'], .popup-section .popup .comments form textarea{
+.popup-section .popup .comments form input[type='text'],
+.popup-section .popup .comments form textarea {
   padding: 15px;
   background: none;
   border: 1px solid white;
@@ -291,12 +292,13 @@ header {
   font-size: 16px;
 }
 
-.popup-section .popup .comments form input[type='text']:focus, .popup-section .popup .comments form textarea:focus{
+.popup-section .popup .comments form input[type='text']:focus,
+.popup-section .popup .comments form textarea:focus {
   outline: none;
   border: 1px solid #f04;
 }
 
-.popup-section .popup .comments form input[type='submit']{
+.popup-section .popup .comments form input[type='submit'] {
   padding: 10px 15px;
   background-color: #151d21;
   color: white;
@@ -306,7 +308,7 @@ header {
   margin-right: 20px;
 }
 
-.popup-section .popup .comments form input[type='submit']:hover{
+.popup-section .popup .comments form input[type='submit']:hover {
   background-color: #f04;
   color: #fefefe;
   border: 1px solid #151d21;
@@ -322,35 +324,35 @@ header {
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup-section .show {
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
+  -webkit-animation: fadein 1s;
+  animation: fadeIn 1s;
 }
 
 .popup-section .hide {
   visibility: hidden;
-  -webkit-animation: fadeOut 1s;
-  animation: fadeOut 1s
+  -webkit-animation: fadeout 1s;
+  animation: fadeOut 1s;
 }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @-webkit-keyframes fadeOut {
-  from {opacity: 1;}
-  to {opacity: 0;}
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes fadeOut {
-  from {opacity: 1;}
-  to {opacity: 0;}
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 footer {

@@ -1,26 +1,29 @@
-import { buildCommentForm } from './comments.js';
+/* eslint-disable no-underscore-dangle */
+import buildCommentForm from './comments.js';
 
 const collectGenres = (genres) => {
-    let genreTags = "";
-    genres.map(genre => {
-        genreTags += `<span>${genre}</span>`;
-    });
-    return genreTags;
-}
+  let genreTags = '';
+  genres.map((genre) => {
+    genreTags += `<span>${genre}</span>`;
+    return 0;
+  });
+  return genreTags;
+};
 
 const collectDaySchedule = (days) => {
-    let daysList = "";
-    days.map(day => {
-        daysList += (day+', ');
-    });
-    return daysList;
-}
+  let daysList = '';
+  days.map((day) => {
+    daysList += (`${day}, `);
+    return 0;
+  });
+  return daysList;
+};
 
-export const buildPopup = (show) => {
-    let popup = document.createElement('div');
-    popup.classList.add('popup');
+export default (show) => {
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
 
-    popup.innerHTML = `
+  popup.innerHTML = `
         <button id="close"><i class="fa fa-close"></i></button>
         <section class="details">
             <div class="infos">
@@ -43,8 +46,8 @@ export const buildPopup = (show) => {
                 <img src="${show.image.medium}" alt="${show.name}">
             </div>
         </section>
-    `
-    popup.appendChild(buildCommentForm());
+    `;
+  popup.appendChild(buildCommentForm());
 
-    return popup;
-}
+  return popup;
+};
