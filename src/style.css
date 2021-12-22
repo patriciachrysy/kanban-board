@@ -157,7 +157,6 @@ header {
   color: #f04;
 }
 
-
 /* Popup container */
 .popup-section {
   position: relative;
@@ -319,7 +318,6 @@ header {
   justify-content: flex-start;
   align-items: center;
 }
-
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup-section .show {
