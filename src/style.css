@@ -10,16 +10,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap');
 
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   color: white;
   font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -33,10 +35,7 @@ body {
       #374a52 50%,
       #233339,
       #151d21
-    ),
-    url('./images/background.gif');
-  background-position: top left;
-  background-repeat: no-repeat;
+    );
 }
 
 h1 {
@@ -66,12 +65,14 @@ header {
   margin: 0 auto;
 }
 
+.container--small {
+  max-width: 850px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
-  margin: auto;
 }
 
 .nav-links {
@@ -95,9 +96,68 @@ header {
   font-size: 1rem;
 }
 
+.section-shows {
+  padding: 3rem 0;
+}
+
+.section-shows__title {
+  margin-bottom: 2rem;
+}
+
+.list-shows {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  grid-gap: 2rem;
+}
+
+.show__img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  height: 160px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(./images/background.gif);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+}
+
+.show__img:hover {
+  background-size: 120%;
+}
+
+.show__info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 20px 10px 1fr;
+}
+
+.show__like {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.show__like:hover {
+  color: #f04;
+}
+
+.show__comment {
+  color: #fff;
+  grid-column: -1;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* stylelint-disable-next-line custom-property-empty-line-before */
+  --ionicon-stroke-width: 50px;
+}
+
+.show__comment:hover {
+  color: #f04;
+}
+
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 

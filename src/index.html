@@ -9,10 +9,10 @@
   </head>
   <body>
     <header>
-      <div class="container">
+      <div class="container container--small">
         <nav class="navbar">
           <a href="#" class="logo"
-            ><img src="./images/logo.png" alt="Logo" class="logo-img"
+            ><img src="#" alt="Logo" class="logo-img"
           /></a>
           <ul class="nav-links">
             <li class="nav-item"><a href="#">TV Shows</a></li>
@@ -22,7 +22,14 @@
         </nav>
       </div>
     </header>
-
+    <main>
+      <section class="section-shows">
+        <div class="container container--small">
+          <h2 class="section-title section-shows__title">Popular shows right now</h2>
+          <ul class="list-shows" id="shows"></ul>
+        </div>
+      </section>
+    </main>
     <footer>
       <div class="footer-content">
         <section>
@@ -60,5 +67,7 @@
         </section>
       </div>
     </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
