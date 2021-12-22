@@ -9,6 +9,7 @@ const displayShows = async () => {
 };
 
 window.onload = () => {
-  document.querySelector('.logo-img').src = url;
   displayShows();
+  document.querySelector('.logo-img').src = url;
+  document.querySelector('.footer-logo-img').src = url;
 };
