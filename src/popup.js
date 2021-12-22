@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import {buildCommentForm} from './comments.js';
+import { buildCommentForm } from './comments.js';
 
 const collectGenres = (genres) => {
   let genreTags = '';

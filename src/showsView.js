@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import buildPopup from './popup.js';
+import { fetchComments } from './comments.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -16,6 +17,7 @@ class ShowsView {
                   <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
                   <span>5</span>
                   <ion-icon class="show__comment" data-id="${show.id}" name="chatbubble-outline"></ion-icon>
+                  <span>${show.commentsCount}</span>
                 </div>
               </div>
             </li>`;
@@ -52,7 +54,10 @@ class ShowsView {
   displayShows(shows) {
     this.parentElement.innerHTML = '';
     const showsSliced = shows.slice(0, 24);
-    showsSliced.forEach((show) => {
+    showsSliced.forEach(async (show) => {
+      const showComments = await fetchComments(show.id);
+      show.commentsCount = showComments.length;
+      show.comments = showComments;
       const markup = this.generateMarkup(show);
       this.parentElement.insertAdjacentHTML('beforeend', markup);
     });

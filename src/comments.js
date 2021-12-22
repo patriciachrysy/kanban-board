@@ -1,18 +1,12 @@
+const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
-baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+const appID = '8a0dfW0tu0UAP5mKoeUq';
 
-appID = '8a0dfW0tu0UAP5mKoeUq';
-
-export async const fetchComments = () => {
-  try {
-    const response = await fetch(`${this.baseURL}/${this.appID}/comments`);
-    if (!response.ok) throw new Error('Error fetching comments');
-    return response.json();
-  } catch (err) {
-    console.error(err);
-    return false;
-  }
-}
+export const fetchComments = async (showId) => {
+  const response = await fetch(`${baseURL}/${appID}/comments?item_id=${showId}`);
+  const data = response.ok ? await response.json() : [];
+  return data;
+};
 
 export const buildCommentForm = () => {
   const formSection = document.createElement('section');
