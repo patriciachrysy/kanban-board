@@ -155,9 +155,9 @@ header {
 
 .show__comment:hover {
   color: #f04;
+}
+
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
