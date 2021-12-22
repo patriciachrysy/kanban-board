@@ -1,4 +1,20 @@
-export default () => {
+
+baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+
+appID = '8a0dfW0tu0UAP5mKoeUq';
+
+export async const fetchComments = () => {
+  try {
+    const response = await fetch(`${this.baseURL}/${this.appID}/comments`);
+    if (!response.ok) throw new Error('Error fetching comments');
+    return response.json();
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+}
+
+export const buildCommentForm = () => {
   const formSection = document.createElement('section');
   formSection.classList.add('comments');
 
