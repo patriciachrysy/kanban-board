@@ -9,12 +9,7 @@ const displayShows = async () => {
 };
 
 window.onload = () => {
-  document.querySelector('.logo-img').src = url;
   displayShows();
-  let popupButton = document.querySelector('.popup');
-  popupButton.addEventListener('click', () => {
-    console.log('button clicked');
-    let popup = document.querySelector('#myPopup');
-    popup.classList.add("show");
-  })
+  document.querySelector('.logo-img').src = url;
+  document.querySelector('.footer-logo-img').src = url;
 };
