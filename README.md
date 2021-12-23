@@ -5,8 +5,6 @@
 ![screenshot](./screenshot-1.png)
 ![screenshot](./screenshot-2.png)
 
-"To Do List" is a simple app that help you record and manage tasks. You can create a new task, update it, mark it as complete, order in terms of priority and delete them when completed.
-
 ## Built With
 
 - HTML
@@ -41,7 +39,7 @@ Run the following commands as listed in your terminal:
 - 
 👤 **Annuar**
 
-- GitHub: [@githubhandle](https://github.com/anuarshaidenov)
+- GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)
 
 ## 🤝 Contributing
 
