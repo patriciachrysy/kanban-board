@@ -20,11 +20,11 @@ class ShowsView {
               </div>
             </li>`;
   }
-  
+
   renderLoadingMessage() {
     this.parentElement.innerHTML = '<li class="show">Loading...</li>';
   }
-  
+
   clearParentElement() {
     this.parentElement.innerHTML = '';
   }
