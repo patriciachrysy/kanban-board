@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 class Shows {
   baseURL = 'https://api.tvmaze.com/shows';
 
@@ -11,16 +12,8 @@ class Shows {
     }
   }
 
-  async countShows() {
-    try {
-      const showsList = await this.fetchShows();
-      if (!showsList) throw new Error('failed to fetch shows list');
-
-      return showsList.length;
-    } catch (err) {
-      console.error(err);
-      return false;
-    }
+  countShows(data) {
+    return data.length;
   }
 }
 
