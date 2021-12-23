@@ -3,6 +3,7 @@ import url from './images/logo.png';
 import shows from './shows.js';
 import showsView from './showsView.js';
 import likes from './likes.js';
+import countShowsView from './countShowsView.js';
 
 const displayShows = async () => {
   showsView.renderLoadingMessage();
@@ -11,8 +12,14 @@ const displayShows = async () => {
   showsView.displayShows(showsList, allLikes);
 };
 
+const displayAmountOfShows = async () => {
+  const amountOfShows = await shows.countShows();
+  countShowsView.displayCount(amountOfShows);
+}
+
 window.onload = () => {
   displayShows();
+  displayAmountOfShows();
   document.querySelector('.logo-img').src = url;
   document.querySelector('.footer-logo-img').src = url;
 };
