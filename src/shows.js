@@ -10,16 +10,6 @@ class Shows {
       return false;
     }
   }
-
-  async getShows() {
-    try {
-      const moviesList = await this.fetchShows();
-      if (!moviesList) throw new Error('Error fetching movies');
-      return moviesList;
-    } catch (err) {
-      return false;
-    }
-  }
 }
 
 const shows = new Shows();

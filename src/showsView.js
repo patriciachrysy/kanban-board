@@ -14,11 +14,19 @@ class ShowsView {
                 <h4>${show.name}</h4>
                 <div class="show__info">
                   <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
-                  <span>5</span>
+                  <span class="show__like-amount">${show.likes}</span>
                   <ion-icon class="show__comment" data-id="${show.id}" name="chatbubble-outline"></ion-icon>
                 </div>
               </div>
             </li>`;
+  }
+  
+  renderLoadingMessage() {
+    this.parentElement.innerHTML = '<li class="show">Loading...</li>';
+  }
+  
+  clearParentElement() {
+    this.parentElement.innerHTML = '';
   }
 
   attachEventListeners(shows) {
@@ -49,10 +57,12 @@ class ShowsView {
     });
   }
 
-  displayShows(shows) {
-    this.parentElement.innerHTML = '';
+  displayShows(shows, allLikes) {
+    this.clearParentElement();
     const showsSliced = shows.slice(0, 24);
     showsSliced.forEach((show) => {
+      const amountOfLikes = allLikes.find((like) => like.item_id === show.id);
+      show.likes = amountOfLikes?.likes || 0;
       const markup = this.generateMarkup(show);
       this.parentElement.insertAdjacentHTML('beforeend', markup);
     });
