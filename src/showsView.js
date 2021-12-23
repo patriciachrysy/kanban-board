@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import buildPopup from './popup.js';
+import likes from './likes.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -9,7 +10,7 @@ class ShowsView {
   }
 
   generateMarkup(show) {
-    return `<li class="show">
+    return `<li class="show" data-id="${show.id}">
               <div class="show__img" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url(${show.image.medium})">
                 <h4>${show.name}</h4>
                 <div class="show__info">
@@ -29,9 +30,30 @@ class ShowsView {
     this.parentElement.innerHTML = '';
   }
 
+  updateLikedItem(id, newAmountOfLikes) {
+    const showsElements = [...this.parentElement.children];
+    const showToUpdate = showsElements.find((element) => element.dataset.id === `${id}`);
+    showToUpdate.querySelector('.show__like-amount').innerText = newAmountOfLikes;
+  }
+
   attachEventListeners(shows) {
     document.querySelectorAll('.show__like').forEach((item) => {
-      item.addEventListener('click', () => {
+      item.addEventListener('click', async () => {
+        try {
+          const { id } = item.dataset;
+          const responseAddLike = await likes.addLike(+id);
+          if (!responseAddLike) throw new Error('Failed to add like');
+
+          const allLikes = await likes.fetchLikes();
+          if (!allLikes) throw new Error('Failed to get all likes');
+          const amountOfLikes = allLikes.find((like) => like.item_id === +id);
+          this.updateLikedItem(id, amountOfLikes.likes);
+
+          return true;
+        } catch (err) {
+          console.error(err);
+          return false;
+        }
       });
     });
     document.querySelectorAll('.show__comment').forEach((item) => {
