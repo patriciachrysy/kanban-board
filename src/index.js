@@ -2,11 +2,13 @@ import './style.css';
 import url from './images/logo.png';
 import shows from './shows.js';
 import showsView from './showsView.js';
+import likes from './likes.js';
 
 const displayShows = async () => {
-  let showsList = await shows.getShows();
-  showsList = await showsView.updateShowWithComments(showsList);
-  showsView.displayShows(showsList);
+  showsView.renderLoadingMessage();
+  const allLikes = await likes.fetchLikes();
+  const showsList = await shows.fetchShows();
+  showsView.displayShows(showsList, allLikes);
 };
 
 window.onload = () => {
