@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import buildCommentForm from './comments.js';
+import { buildCommentSection } from './comments.js';
 
 const collectGenres = (genres) => {
   let genreTags = '';
@@ -47,7 +47,7 @@ export default (show) => {
             </div>
         </section>
     `;
-  popup.appendChild(buildCommentForm());
+  popup.appendChild(buildCommentSection(show));
 
   return popup;
 };

@@ -273,6 +273,13 @@ header {
   letter-spacing: 1px;
 }
 
+.popup-section .popup .comments h1 small {
+  margin: 0 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #f04;
+}
+
 .popup-section .popup .comments form {
   width: 100%;
   display: flex;
@@ -317,6 +324,38 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.popup-section .popup .comments .comment {
+  width: 100%;
+  padding: 20px;
+  background-color: #233339;
+  color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+}
+
+.popup-section .popup .comments .comment .comment-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-section .popup .comments .comment p {
+  align-self: flex-start;
+  font-size: 18px;
+}
+
+.popup-section .popup .comments .comment .comment-header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue', cursive;
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */

@@ -1,9 +1,62 @@
-export default () => {
+const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+
+const appID = '8a0dfW0tu0UAP5mKoeUq';
+
+export const fetchComments = async (showId) => {
+  const response = await fetch(`${baseURL}/${appID}/comments?item_id=${showId}`);
+  const data = response.ok ? await response.json() : [];
+  return data;
+};
+
+const saveComment = async (showId, commentData) => {
+  const data = {
+    item_id: showId,
+    username: commentData.name,
+    comment: commentData.comment,
+  };
+  const response = await fetch(`${baseURL}/${appID}/comments`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  return response.ok;
+};
+
+const displayComment = (comment) => {
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+
+  const commentHeaderDiv = document.createElement('div');
+  commentHeaderDiv.classList.add('comment-header');
+  const author = document.createElement('h4');
+  author.innerText = comment.username;
+  const timestamp = document.createElement('small');
+  timestamp.innerText = comment.creation_date;
+  commentHeaderDiv.appendChild(author);
+  commentHeaderDiv.appendChild(timestamp);
+
+  const commentContent = document.createElement('p');
+  commentContent.innerText = comment.comment;
+
+  commentDiv.appendChild(commentHeaderDiv);
+  commentDiv.appendChild(commentContent);
+
+  return commentDiv;
+};
+
+export const buildCommentSection = (show) => {
   const formSection = document.createElement('section');
   formSection.classList.add('comments');
 
   const title = document.createElement('h1');
   title.innerText = 'Comments';
+
+  const spanCount = document.createElement('small');
+  spanCount.innerText = `(${show.commentsCount})`;
+
+  title.appendChild(spanCount);
 
   formSection.appendChild(title);
 
@@ -28,9 +81,26 @@ export default () => {
   const submitButton = document.createElement('input');
   submitButton.setAttribute('type', 'submit');
   submitButton.setAttribute('value', 'Send Comment');
-  submitButton.addEventListener('click', (e) => {
+  submitButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    // Implement comment saving
+    if (nameInput.value.trim().length > 0 && textarea.value.trim().length > 0) {
+      const commentData = {
+        name: nameInput.value,
+        comment: textarea.value,
+      };
+      const res = await saveComment(show.id, commentData);
+      if (res) {
+        form.reset();
+        const allComments = await fetchComments(show.id);
+        const newComment = allComments[allComments.length - 1];
+        formSection.appendChild(displayComment(newComment));
+        show.comments = allComments;
+        show.commentsCount = allComments.length;
+
+        const showCommentCount = document.querySelector(`#comment-count-${show.id}`);
+        showCommentCount.innerText = show.commentsCount;
+      }
+    }
   });
 
   const spoilButton = document.createElement('input');
@@ -52,6 +122,11 @@ export default () => {
   form.appendChild(div);
 
   formSection.appendChild(form);
+
+  show.comments.map((comment) => {
+    formSection.appendChild(displayComment(comment));
+    return 0;
+  });
 
   return formSection;
 };

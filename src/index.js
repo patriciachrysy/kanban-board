@@ -7,7 +7,8 @@ import likes from './likes.js';
 const displayShows = async () => {
   showsView.renderLoadingMessage();
   const allLikes = await likes.fetchLikes();
-  const showsList = await shows.fetchShows();
+  let showsList = await shows.fetchShows();
+  showsList = await showsView.updateShowWithComments(showsList);
   showsView.displayShows(showsList, allLikes);
 };
 
