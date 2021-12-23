@@ -13,6 +13,28 @@ class Likes {
         return false;
       }
     }
+
+    async addLike(id) {
+      try {
+        const dataToSend = {
+          item_id: id,
+        };
+
+        const response = await fetch(`${this.baseURL}/${this.appID}/likes`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataToSend),
+        });
+        if (!response.ok) throw new Error('Error adding like');
+
+        return true;
+      } catch (err) {
+        console.error(err);
+        return false;
+      }
+    }
 }
 
 const likes = new Likes();
