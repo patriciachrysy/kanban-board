@@ -9,8 +9,8 @@ class CountShowsView {
     this.parentElement.innerText = 'Loading...';
   }
 
-  displayCount(amountOfShows) {
-    this.parentElement.innerText = `${amountOfShows} shows overall`;
+  displayCount(amountOfShowsOverall) {
+    this.parentElement.innerText = `24 displayed out of ${amountOfShowsOverall} shows overall`;
   }
 }
 
