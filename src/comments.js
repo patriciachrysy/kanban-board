@@ -8,12 +8,39 @@ export const fetchComments = async (showId) => {
   return data;
 };
 
-export const buildCommentForm = () => {
+const displayComment = (comment) => {
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+
+  const commentHeaderDiv = document.createElement('div');
+  commentHeaderDiv.classList.add('comment-header');
+  const author = document.createElement('h4');
+  author.innerText = comment.username;
+  const timestamp = document.createElement('small');
+  timestamp.innerText = comment.creation_date;
+  commentHeaderDiv.appendChild(author);
+  commentHeaderDiv.appendChild(timestamp);
+
+  const commentContent = document.createElement('p');
+  commentContent.innerText = comment.comment;
+
+  commentDiv.appendChild(commentHeaderDiv);
+  commentDiv.appendChild(commentContent);
+
+  return commentDiv;
+};
+
+export const buildCommentSection = (comments) => {
   const formSection = document.createElement('section');
   formSection.classList.add('comments');
 
   const title = document.createElement('h1');
   title.innerText = 'Comments';
+
+  const spanCount = document.createElement('small');
+  spanCount.innerText = `(${comments.length})`;
+
+  title.appendChild(spanCount);
 
   formSection.appendChild(title);
 
@@ -62,6 +89,11 @@ export const buildCommentForm = () => {
   form.appendChild(div);
 
   formSection.appendChild(form);
+
+  comments.map((comment) => {
+    formSection.appendChild(displayComment(comment));
+    return 0;
+  });
 
   return formSection;
 };

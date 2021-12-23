@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+/* eslint-disable no-await-in-loop */
 import buildPopup from './popup.js';
 import { fetchComments } from './comments.js';
 
@@ -17,7 +18,6 @@ class ShowsView {
                   <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
                   <span class="show__like-amount">${show.likes}</span>
                   <ion-icon class="show__comment" data-id="${show.id}" name="chatbubble-outline"></ion-icon>
-                  <span>${show.commentsCount}</span>
                 </div>
               </div>
             </li>`;
@@ -59,13 +59,21 @@ class ShowsView {
     });
   }
 
+  async updateShowWithComments(shows) {
+    let i = 0;
+    while (i < 24) {
+      const showComments = await fetchComments(shows[i].id);
+      shows[i].commentsCount = showComments.length;
+      shows[i].comments = showComments;
+      i += 1;
+    }
+    return shows;
+  }
+
   displayShows(shows, allLikes) {
-    this.clearParentElement();
+    this.parentElement.innerHTML = '';
     const showsSliced = shows.slice(0, 24);
-    showsSliced.forEach(async (show) => {
-      const showComments = await fetchComments(show.id);
-      show.commentsCount = showComments.length;
-      show.comments = showComments;
+    showsSliced.forEach((show) => {
       const amountOfLikes = allLikes.find((like) => like.item_id === show.id);
       show.likes = amountOfLikes?.likes || 0;
       const markup = this.generateMarkup(show);
