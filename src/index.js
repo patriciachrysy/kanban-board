@@ -4,7 +4,8 @@ import shows from './shows.js';
 import showsView from './showsView.js';
 
 const displayShows = async () => {
-  const showsList = await shows.getShows();
+  let showsList = await shows.getShows();
+  showsList = await showsView.updateShowWithComments(showsList);
   showsView.displayShows(showsList);
 };
 
