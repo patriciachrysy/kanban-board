@@ -18,7 +18,6 @@ class ShowsView {
                   <ion-icon class="show__like" data-id="${show.id}" name="heart"></ion-icon>
                   <span class="show__like-amount">${show.likes}</span>
                   <ion-icon class="show__comment" data-id="${show.id}" name="chatbubble-outline"></ion-icon>
-                  <span>${show.commentsCount}</span>
                 </div>
               </div>
             </li>`;

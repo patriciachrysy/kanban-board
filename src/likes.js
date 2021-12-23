@@ -9,7 +9,6 @@ class Likes {
         if (!response.ok) throw new Error('Error fetching likes');
         return response.json();
       } catch (err) {
-        console.error(err);
         return false;
       }
     }
