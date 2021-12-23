@@ -1,4 +1,14 @@
-export default () => {
+const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+
+const appID = '8a0dfW0tu0UAP5mKoeUq';
+
+export const fetchComments = async (showId) => {
+  const response = await fetch(`${baseURL}/${appID}/comments?item_id=${showId}`);
+  const data = response.ok ? await response.json() : [];
+  return data;
+};
+
+export const buildCommentForm = () => {
   const formSection = document.createElement('section');
   formSection.classList.add('comments');
 
