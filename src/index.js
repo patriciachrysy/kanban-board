@@ -13,6 +13,7 @@ const displayShows = async () => {
 };
 
 const displayAmountOfShows = async () => {
+  countShowsView.renderLoadingMessage();
   const amountOfShows = await shows.countShows();
   countShowsView.displayCount(amountOfShows);
 }
