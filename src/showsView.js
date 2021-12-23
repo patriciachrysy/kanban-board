@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import buildPopup from './popup.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -28,17 +29,30 @@ class ShowsView {
     this.parentElement.innerHTML = '';
   }
 
-  attachEventListeners() {
+  attachEventListeners(shows) {
     document.querySelectorAll('.show__like').forEach((item) => {
       item.addEventListener('click', () => {
-        // TODO: Implement liking a show
-        console.log(`like the ${item.dataset.id}th element`);
       });
     });
     document.querySelectorAll('.show__comment').forEach((item) => {
       item.addEventListener('click', () => {
-        // TODO: Implement opening comments section
-        console.log(`open the ${item.dataset.id}'s modal`);
+        let theShow = null;
+        shows.map((show) => {
+          if (show.id === parseInt(item.dataset.id, 10)) {
+            theShow = show;
+          }
+          return 0;
+        });
+        const popSection = document.querySelector('.popup-section');
+        const popup = buildPopup(theShow);
+        popup.classList.add('show');
+        popSection.innerHTML = '';
+        popSection.appendChild(popup);
+
+        const popupCloseButton = document.querySelector('#close');
+        popupCloseButton.addEventListener('click', () => {
+          popup.classList.add('hide');
+        });
       });
     });
   }
@@ -52,7 +66,7 @@ class ShowsView {
       const markup = this.generateMarkup(show);
       this.parentElement.insertAdjacentHTML('beforeend', markup);
     });
-    this.attachEventListeners();
+    this.attachEventListeners(shows);
   }
 }
 

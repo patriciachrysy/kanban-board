@@ -157,6 +157,202 @@ header {
   color: #f04;
 }
 
+/* Popup container */
+.popup-section {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+/* The actual popup (appears on top) */
+.popup-section .popup {
+  visibility: hidden;
+  width: 100%;
+  margin: auto;
+  background-color: rgba(21, 29, 33, 0.95);
+  color: #fefefe;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border: 3px solid #f04;
+  padding: 20px;
+}
+
+.popup-section #close {
+  align-self: flex-end;
+  color: #f04;
+  background: none;
+  border: none;
+  font-size: 28px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.popup-section #close:hover {
+  opacity: 1;
+}
+
+.popup-section .popup .details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 400px;
+  padding: 10px;
+}
+
+.popup-section .popup .details .infos {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .details #title {
+  font-size: 75px;
+  font-family: 'Bebas Neue', cursive;
+  color: #f04;
+}
+
+.popup-section .popup .details .genres span {
+  padding: 5px 10px;
+  background-color: #374a52;
+  margin: 0 5px;
+  border-radius: 17px;
+}
+
+.popup-section .popup .details .schedule {
+  font-weight: bold;
+}
+
+.popup-section .popup .details .description {
+  font-size: 18px;
+}
+
+.popup-section .popup .details .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .details .actions a,
+.popup-section .popup .comments form input[type='submit'] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 10px 15px;
+  background-color: #151d21;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #f04;
+}
+
+.popup-section .popup .details .actions a:first-child {
+  background-color: #f04;
+  border: 1px solid #151d21;
+}
+
+.popup-section .popup .comments {
+  padding: 30px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.popup-section .popup .comments h1 {
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.popup-section .popup .comments form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .comments form input[type='text'],
+.popup-section .popup .comments form textarea {
+  padding: 15px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.popup-section .popup .comments form input[type='text']:focus,
+.popup-section .popup .comments form textarea:focus {
+  outline: none;
+  border: 1px solid #f04;
+}
+
+.popup-section .popup .comments form input[type='submit'] {
+  padding: 10px 15px;
+  background-color: #151d21;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #f04;
+  margin-right: 20px;
+}
+
+.popup-section .popup .comments form input[type='submit']:hover {
+  background-color: #f04;
+  color: #fefefe;
+  border: 1px solid #151d21;
+}
+
+.popup-section .popup .comments form .bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup-section .show {
+  visibility: visible;
+  -webkit-animation: fadein 1s;
+  animation: fadeIn 1s;
+}
+
+.popup-section .hide {
+  visibility: hidden;
+  -webkit-animation: fadeout 1s;
+  animation: fadeOut 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 footer {
   width: 100%;
 }
