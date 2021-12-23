@@ -273,6 +273,13 @@ header {
   letter-spacing: 1px;
 }
 
+.popup-section .popup .comments h1 small {
+  margin: 0 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #f04;
+}
+
 .popup-section .popup .comments form {
   width: 100%;
   display: flex;

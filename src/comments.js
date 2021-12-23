@@ -53,6 +53,11 @@ export const buildCommentSection = (show) => {
   const title = document.createElement('h1');
   title.innerText = 'Comments';
 
+  const spanCount = document.createElement('small');
+  spanCount.innerText = `(${comments.length})`;
+
+  title.appendChild(spanCount);
+
   formSection.appendChild(title);
 
   const form = document.createElement('form');
