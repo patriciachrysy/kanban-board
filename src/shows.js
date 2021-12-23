@@ -10,6 +10,18 @@ class Shows {
       return false;
     }
   }
+
+  async countShows() {
+    try {
+      const showsList = await this.fetchShows();
+      if (!showsList) throw new Error('failed to fetch shows list');
+
+      return showsList.length;
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  }
 }
 
 const shows = new Shows();
