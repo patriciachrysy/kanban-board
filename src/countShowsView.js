@@ -5,6 +5,10 @@ class CountShowsView {
     this.parentElement = parentElement;
   }
 
+  renderLoadingMessage() {
+    this.parentElement.innerText = 'Loading...';
+  }
+
   displayCount(amountOfShows) {
     this.parentElement.innerText = `${amountOfShows} shows overall`;
   }
