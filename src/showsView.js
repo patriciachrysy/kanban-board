@@ -48,8 +48,8 @@ class ShowsView {
 
           const allLikes = await likes.fetchLikes();
           if (!allLikes) throw new Error('Failed to get all likes');
-          const amountOfLikes = allLikes.find((like) => like.item_id === +id);
-          this.updateLikedItem(id, amountOfLikes.likes);
+          const amountOfLikes = allLikes.find((like) => like.item_id === +id).likes;
+          this.updateLikedItem(id, amountOfLikes);
 
           return true;
         } catch (err) {
