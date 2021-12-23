@@ -71,7 +71,7 @@ class ShowsView {
     return shows;
   }
 
-  displayShows(shows) {
+  displayShows(shows, allLikes) {
     this.parentElement.innerHTML = '';
     const showsSliced = shows.slice(0, 24);
     showsSliced.forEach((show) => {
