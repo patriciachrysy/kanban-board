@@ -54,7 +54,7 @@ export const buildCommentSection = (show) => {
   title.innerText = 'Comments';
 
   const spanCount = document.createElement('small');
-  spanCount.innerText = `(${comments.length})`;
+  spanCount.innerText = `(${show.commentsCount})`;
 
   title.appendChild(spanCount);
 
