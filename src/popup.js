@@ -47,7 +47,7 @@ export default (show) => {
             </div>
         </section>
     `;
-  popup.appendChild(buildCommentSection(show.comments));
+  popup.appendChild(buildCommentSection(show));
 
   return popup;
 };

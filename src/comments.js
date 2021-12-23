@@ -8,6 +8,22 @@ export const fetchComments = async (showId) => {
   return data;
 };
 
+const saveComment = async (showId, commentData) => {
+  const data = {
+    item_id: showId,
+    username: commentData.name,
+    comment: commentData.comment,
+  };
+  const response = await fetch(`${baseURL}/${appID}/comments`, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  return response.ok;
+};
+
 const displayComment = (comment) => {
   const commentDiv = document.createElement('div');
   commentDiv.classList.add('comment');
@@ -30,7 +46,7 @@ const displayComment = (comment) => {
   return commentDiv;
 };
 
-export const buildCommentSection = (comments) => {
+export const buildCommentSection = (show) => {
   const formSection = document.createElement('section');
   formSection.classList.add('comments');
 
@@ -38,7 +54,7 @@ export const buildCommentSection = (comments) => {
   title.innerText = 'Comments';
 
   const spanCount = document.createElement('small');
-  spanCount.innerText = `(${comments.length})`;
+  spanCount.innerText = `(${show.commentsCount})`;
 
   title.appendChild(spanCount);
 
@@ -65,9 +81,26 @@ export const buildCommentSection = (comments) => {
   const submitButton = document.createElement('input');
   submitButton.setAttribute('type', 'submit');
   submitButton.setAttribute('value', 'Send Comment');
-  submitButton.addEventListener('click', (e) => {
+  submitButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    // Implement comment saving
+    if (nameInput.value.trim().length > 0 && textarea.value.trim().length > 0) {
+      const commentData = {
+        name: nameInput.value,
+        comment: textarea.value,
+      };
+      const res = await saveComment(show.id, commentData);
+      if (res) {
+        form.reset();
+        const allComments = await fetchComments(show.id);
+        const newComment = allComments[allComments.length - 1];
+        formSection.appendChild(displayComment(newComment));
+        show.comments = allComments;
+        show.commentsCount = allComments.length;
+
+        const showCommentCount = document.querySelector(`#comment-count-${show.id}`);
+        showCommentCount.innerText = show.commentsCount;
+      }
+    }
   });
 
   const spoilButton = document.createElement('input');
@@ -90,7 +123,7 @@ export const buildCommentSection = (comments) => {
 
   formSection.appendChild(form);
 
-  comments.map((comment) => {
+  show.comments.map((comment) => {
     formSection.appendChild(displayComment(comment));
     return 0;
   });
