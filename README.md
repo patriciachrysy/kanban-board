@@ -5,6 +5,8 @@
 ![screenshot](./screenshot-1.png)
 ![screenshot](./screenshot-2.png)
 
+[Watch the video presentation](https://drive.google.com/file/d/1svFQg9_LLJpxsX6ZNLWN3IxjPV9hFE2e/view?usp=sharing)
+
 ## Built With
 
 - HTML
