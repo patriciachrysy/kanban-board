@@ -1,9 +1,11 @@
-# Kanban Board
+# TV Shows database
 
-> We are creating a kanban Board as part of Microverse project
+> This is the app where you could see information about shows as well as leave likes and comments on your favorite shows.
 
 ![screenshot](./screenshot-1.png)
 ![screenshot](./screenshot-2.png)
+
+For this project we used TV Maze API for listing the shows and Involvement API to save the likes and comments.
 
 [Watch the video presentation](https://drive.google.com/file/d/1svFQg9_LLJpxsX6ZNLWN3IxjPV9hFE2e/view?usp=sharing)
 
