@@ -4,12 +4,13 @@ import shows from './shows.js';
 import showsView from './showsView.js';
 import likes from './likes.js';
 import countShowsView from './countShowsView.js';
+import { updateShowWithComments } from './comments.js';
 
 const displayShows = async () => {
   showsView.renderLoadingMessage();
   const allLikes = await likes.fetchLikes();
   let showsList = await shows.fetchShows();
-  showsList = await showsView.updateShowWithComments(showsList);
+  showsList = await updateShowWithComments(showsList);
   showsView.displayShows(showsList, allLikes);
 };
 

@@ -1,8 +1,6 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-await-in-loop */
 import buildPopup from './popup.js';
 import likes from './likes.js';
-import { fetchComments } from './comments.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -53,7 +51,6 @@ class ShowsView {
 
           return true;
         } catch (err) {
-          console.error(err);
           return false;
         }
       });
@@ -79,17 +76,6 @@ class ShowsView {
         });
       });
     });
-  }
-
-  async updateShowWithComments(shows) {
-    let i = 0;
-    while (i < 24) {
-      const showComments = await fetchComments(shows[i].id);
-      shows[i].commentsCount = showComments.length;
-      shows[i].comments = showComments;
-      i += 1;
-    }
-    return shows;
   }
 
   displayShows(shows, allLikes) {

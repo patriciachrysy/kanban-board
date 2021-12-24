@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
 const appID = '8a0dfW0tu0UAP5mKoeUq';
@@ -23,6 +25,18 @@ const saveComment = async (showId, commentData) => {
   });
   return response.ok;
 };
+
+export const updateShowWithComments = async (shows) => {
+  let i = 0;
+  while (i < 24) {
+    const showComments = await fetchComments(shows[i].id);
+    shows[i].comments = showComments;
+    i += 1;
+  }
+  return shows;
+};
+
+export const countComments = (show) => show.comments.length;
 
 const displayComment = (comment) => {
   const commentDiv = document.createElement('div');
@@ -54,7 +68,7 @@ export const buildCommentSection = (show) => {
   title.innerText = 'Comments';
 
   const spanCount = document.createElement('small');
-  spanCount.innerText = `(${show.commentsCount})`;
+  spanCount.innerText = `(${countComments(show)})`;
 
   title.appendChild(spanCount);
 
