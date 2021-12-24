@@ -20,9 +20,11 @@
 
 ## Getting Started
 
-Clone the project from here. Make sur you have the latest version of NodeJS en npm installed locally.
+Make sur you have the latest version of NodeJS en npm installed locally.
 
 Run the following commands as listed in your terminal:
+- git clone https://github.com/patriciachrysy/kanban-board.git
+- cd kanban-board
 - npm install
 - npm run build
 - npm start

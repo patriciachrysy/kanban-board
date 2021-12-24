@@ -68,7 +68,7 @@ export const buildCommentSection = (show) => {
   title.innerText = 'Comments';
 
   const spanCount = document.createElement('small');
-  spanCount.setAttribute('id', `comment-count-${show.id}`)
+  spanCount.setAttribute('id', `comment-count-${show.id}`);
   spanCount.innerText = `(${countComments(show)})`;
 
   title.appendChild(spanCount);
@@ -108,7 +108,7 @@ export const buildCommentSection = (show) => {
         form.reset();
         const allComments = await fetchComments(show.id);
         const newComment = allComments[allComments.length - 1];
-        formSection.appendChild(displayComment(newComment));
+        form.parentNode.insertBefore(displayComment(newComment), form);
         show.comments = allComments;
 
         const showCommentCount = document.querySelector(`#comment-count-${show.id}`);
@@ -135,12 +135,12 @@ export const buildCommentSection = (show) => {
   form.appendChild(textarea);
   form.appendChild(div);
 
-  formSection.appendChild(form);
-
   show.comments.map((comment) => {
     formSection.appendChild(displayComment(comment));
     return 0;
   });
+
+  formSection.appendChild(form);
 
   return formSection;
 };
