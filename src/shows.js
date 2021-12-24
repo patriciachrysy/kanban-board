@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 class Shows {
   baseURL = 'https://api.tvmaze.com/shows';
 
@@ -9,6 +10,10 @@ class Shows {
     } catch (err) {
       return false;
     }
+  }
+
+  countShows(data) {
+    return data.length;
   }
 }
 
