@@ -81,17 +81,6 @@ class ShowsView {
     });
   }
 
-  async updateShowWithComments(shows) {
-    let i = 0;
-    while (i < 24) {
-      const showComments = await fetchComments(shows[i].id);
-      shows[i].commentsCount = showComments.length;
-      shows[i].comments = showComments;
-      i += 1;
-    }
-    return shows;
-  }
-
   displayShows(shows, allLikes) {
     this.parentElement.innerHTML = '';
     const showsSliced = shows.slice(0, 24);
