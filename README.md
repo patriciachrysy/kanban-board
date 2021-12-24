@@ -36,7 +36,7 @@ Run the following commands as listed in your terminal:
 👤 **Patricia**
 
 - GitHub: [@githubhandle](https://github.compatriciachrysy)
-- 
+  
 👤 **Annuar**
 
 - GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)

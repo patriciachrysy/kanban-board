@@ -68,6 +68,7 @@ export const buildCommentSection = (show) => {
   title.innerText = 'Comments';
 
   const spanCount = document.createElement('small');
+  spanCount.setAttribute('id', `comment-count-${show.id}`)
   spanCount.innerText = `(${countComments(show)})`;
 
   title.appendChild(spanCount);
@@ -109,10 +110,9 @@ export const buildCommentSection = (show) => {
         const newComment = allComments[allComments.length - 1];
         formSection.appendChild(displayComment(newComment));
         show.comments = allComments;
-        show.commentsCount = allComments.length;
 
         const showCommentCount = document.querySelector(`#comment-count-${show.id}`);
-        showCommentCount.innerText = show.commentsCount;
+        showCommentCount.innerText = `(${countComments(show)})`;
       }
     }
   });
