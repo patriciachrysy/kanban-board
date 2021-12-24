@@ -1,10 +1,13 @@
-# Kanban Board
+# TV Shows database
 
-> We are creating a kanban Board as part of Microverse project
+> This is the app where you could see information about shows as well as leave likes and comments on your favorite shows.
 
-![screenshot](./readme_archive.png)
+![screenshot](./screenshot-1.png)
+![screenshot](./screenshot-2.png)
 
-"To Do List" is a simple app that help you record and manage tasks. You can create a new task, update it, mark it as complete, order in terms of priority and delete them when completed.
+For this project we used TV Maze API for listing the shows and Involvement API to save the likes and comments.
+
+[Watch the video presentation](https://drive.google.com/file/d/1svFQg9_LLJpxsX6ZNLWN3IxjPV9hFE2e/view?usp=sharing)
 
 ## Built With
 
@@ -21,9 +24,11 @@
 
 ## Getting Started
 
-Clone the project from here. Make sur you have the latest version of NodeJS en npm installed locally.
+Make sur you have the latest version of NodeJS en npm installed locally.
 
 Run the following commands as listed in your terminal:
+- git clone https://github.com/patriciachrysy/kanban-board.git
+- cd kanban-board
 - npm install
 - npm run build
 - npm start
@@ -37,10 +42,10 @@ Run the following commands as listed in your terminal:
 👤 **Patricia**
 
 - GitHub: [@githubhandle](https://github.compatriciachrysy)
-- 
+  
 👤 **Annuar**
 
-- GitHub: [@githubhandle](https://github.com/anuarshaidenov)
+- GitHub: [@anuarshaidenov](https://github.com/anuarshaidenov)
 
 ## 🤝 Contributing
 

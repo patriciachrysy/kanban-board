@@ -1,0 +1,453 @@
+/* black-color: #374a52  rgba(55,74,82,255) */
+
+/* Deep-black #233339 rgba(35,51,57,255) */
+
+/* Deepest-black #151d21 rgba(21,29,33,255) */
+
+/* Pink-color #ff0044 rgba(255,0,68,255) */
+
+/* white-color #fefefe rgba(254,254,254,255) */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans+Narrow&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+body {
+  background:
+    linear-gradient(
+      to bottom,
+      #151d21 20%,
+      #233339,
+      #374a52 50%,
+      #233339,
+      #151d21
+    );
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  padding: 2rem 0;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container--small {
+  max-width: 850px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.nav-item a {
+  transition: all 0.9s;
+}
+
+.nav-item a:hover {
+  color: #f04;
+  font-size: 1rem;
+}
+
+.section-shows {
+  padding: 3rem 0;
+}
+
+.section-shows__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.list-shows {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  grid-gap: 2rem;
+}
+
+.show__img {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  height: 160px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(./images/background.gif);
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+}
+
+.show__img:hover {
+  background-size: 120%;
+}
+
+.show__info {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 20px 10px 1fr;
+}
+
+.show__like {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.show__like:hover {
+  color: #f04;
+}
+
+.show__comment {
+  color: #fff;
+  grid-column: -1;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* stylelint-disable-next-line custom-property-empty-line-before */
+  --ionicon-stroke-width: 50px;
+}
+
+.show__comment:hover {
+  color: #f04;
+}
+
+/* Popup container */
+.popup-section {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+/* The actual popup (appears on top) */
+.popup-section .popup {
+  visibility: hidden;
+  width: 100%;
+  margin: auto;
+  background-color: rgba(21, 29, 33, 0.95);
+  color: #fefefe;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border: 3px solid #f04;
+  padding: 20px;
+}
+
+.popup-section #close {
+  align-self: flex-end;
+  color: #f04;
+  background: none;
+  border: none;
+  font-size: 28px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.popup-section #close:hover {
+  opacity: 1;
+}
+
+.popup-section .popup .details {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  min-height: 400px;
+  padding: 10px;
+}
+
+.popup-section .popup .details .infos {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .details #title {
+  font-size: 75px;
+  font-family: 'Bebas Neue', cursive;
+  color: #f04;
+}
+
+.popup-section .popup .details .genres span {
+  padding: 5px 10px;
+  background-color: #374a52;
+  margin: 0 5px;
+  border-radius: 17px;
+}
+
+.popup-section .popup .details .schedule {
+  font-weight: bold;
+}
+
+.popup-section .popup .details .description {
+  font-size: 18px;
+}
+
+.popup-section .popup .details .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .details .actions a,
+.popup-section .popup .comments form input[type='submit'] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 10px 15px;
+  background-color: #151d21;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #f04;
+}
+
+.popup-section .popup .details .actions a:first-child {
+  background-color: #f04;
+  border: 1px solid #151d21;
+}
+
+.popup-section .popup .comments {
+  padding: 30px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.popup-section .popup .comments h1 {
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.popup-section .popup .comments h1 small {
+  margin: 0 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #f04;
+}
+
+.popup-section .popup .comments form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.popup-section .popup .comments form input[type='text'],
+.popup-section .popup .comments form textarea {
+  padding: 15px;
+  background: none;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.popup-section .popup .comments form input[type='text']:focus,
+.popup-section .popup .comments form textarea:focus {
+  outline: none;
+  border: 1px solid #f04;
+}
+
+.popup-section .popup .comments form input[type='submit'] {
+  padding: 10px 15px;
+  background-color: #151d21;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #f04;
+  margin-right: 20px;
+}
+
+.popup-section .popup .comments form input[type='submit']:hover {
+  background-color: #f04;
+  color: #fefefe;
+  border: 1px solid #151d21;
+}
+
+.popup-section .popup .comments form .bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.popup-section .popup .comments .comment {
+  width: 100%;
+  padding: 20px;
+  background-color: #233339;
+  color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 5px;
+}
+
+.popup-section .popup .comments .comment .comment-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-section .popup .comments .comment p {
+  align-self: flex-start;
+  font-size: 18px;
+}
+
+.popup-section .popup .comments .comment .comment-header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue', cursive;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup-section .show {
+  visibility: visible;
+  -webkit-animation: fadein 1s;
+  animation: fadeIn 1s;
+}
+
+.popup-section .hide {
+  visibility: hidden;
+  -webkit-animation: fadeout 1s;
+  animation: fadeOut 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+footer {
+  width: 100%;
+}
+
+.footer-content {
+  width: 80%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-content img {
+  width: 50px;
+}
+
+.footer-content section {
+  width: 30%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.footer-content section:first-child {
+  align-items: flex-start;
+}
+
+.footer-content section h2 {
+  font-size: 18px;
+  color: #f04;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.footer-content section ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content section:first-child ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  list-style: none;
+}
+
+.footer-content section:first-child ul li {
+  list-style: none;
+}
