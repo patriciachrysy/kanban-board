@@ -1,8 +1,6 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable no-await-in-loop */
 import buildPopup from './popup.js';
 import likes from './likes.js';
-import { fetchComments } from './comments.js';
 
 const showsContainer = document.getElementById('shows');
 
@@ -53,7 +51,6 @@ class ShowsView {
 
           return true;
         } catch (err) {
-          console.error(err);
           return false;
         }
       });

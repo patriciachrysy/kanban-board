@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
 const appID = '8a0dfW0tu0UAP5mKoeUq';
@@ -32,11 +34,9 @@ export const updateShowWithComments = async (shows) => {
     i += 1;
   }
   return shows;
-}
+};
 
-export const countComments = (show) => {
-  return show.comments.length;
-}
+export const countComments = (show) => show.comments.length;
 
 const displayComment = (comment) => {
   const commentDiv = document.createElement('div');
